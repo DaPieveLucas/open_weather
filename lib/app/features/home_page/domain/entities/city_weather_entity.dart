@@ -1,14 +1,12 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:open_weather/app/features/home_page/data/models/main_data_model.dart';
 
 class CityWeatherEntity {
-  final String name;
-  final MainDataModel mainDataModel;
-
   CityWeatherEntity({
     required this.name,
     required this.mainDataModel,
   });
+  final String name;
+  final MainDataModel mainDataModel;
 
   @override
   bool operator ==(covariant CityWeatherEntity other) {

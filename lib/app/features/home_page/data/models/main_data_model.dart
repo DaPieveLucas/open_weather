@@ -11,12 +11,12 @@ class MainDataModel {
   });
   factory MainDataModel.fromMap(Map<String, dynamic> map) {
     return MainDataModel(
-      temp: map['main']['temp'] as double,
-      feelsLike: map['main']['feelsLike'] as double,
-      tempMin: map['main']['tempMin'] as double,
-      tempMax: map['main']['tempMax'] as double,
-      pressure: map['main']['pressure'] as int,
-      humidity: map['main']['humidity'] as int,
+      temp: map['temp'] as double,
+      feelsLike: map['feels_like'] as double,
+      tempMin: map['temp_min'] as double,
+      tempMax: map['temp_max'] as double,
+      pressure: map['pressure'] as int,
+      humidity: map['humidity'] as int,
     );
   }
 
@@ -33,9 +33,9 @@ class MainDataModel {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'temp': temp,
-      'feelsLike': feelsLike,
-      'tempMin': tempMin,
-      'tempMax': tempMax,
+      'feels_like': feelsLike,
+      'temp_min': tempMin,
+      'temp_max': tempMax,
       'pressure': pressure,
       'humidity': humidity,
     };

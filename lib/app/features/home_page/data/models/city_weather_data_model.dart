@@ -9,8 +9,7 @@ class CityWeatherDataModel extends CityWeatherEntity {
 
   factory CityWeatherDataModel.fromMap(Map<String, dynamic> map) {
     return CityWeatherDataModel(
-      mainDataModel:
-          MainDataModel.fromMap(map['mainDataModel'] as Map<String, dynamic>),
+      mainDataModel: MainDataModel.fromMap(map['main'] as Map<String, dynamic>),
       name: map['name'] as String,
     );
   }
