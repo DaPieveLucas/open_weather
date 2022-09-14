@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../domain/entities/city_weather_entity.dart';
+import '../../domain/entities/name_entity.dart';
 import '../../domain/usecases/city_weather_usecase.dart';
 
 part 'city_weather_state.dart';

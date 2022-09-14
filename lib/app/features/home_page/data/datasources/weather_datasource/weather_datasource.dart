@@ -1,5 +1,5 @@
-import '../../models/city_weather_data_model.dart';
+import '../../../domain/entities/name_entity.dart';
 
 abstract class WeatherDatasource {
-  Future<CityWeatherDataModel> call(String cityName);
+  Future<NameEntity> call(String cityName);
 }

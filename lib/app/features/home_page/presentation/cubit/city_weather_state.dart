@@ -31,9 +31,9 @@ class CityWeatherErrorState extends CityWeatherState {
 class CityWeatherSuccess extends CityWeatherState {
   const CityWeatherSuccess({required this.cityWeatherEntity});
 
-  final CityWeatherEntity cityWeatherEntity;
+  final NameEntity cityWeatherEntity;
 
-  CityWeatherSuccess copyWith({CityWeatherEntity? cityWeatherEntity}) =>
+  CityWeatherSuccess copyWith({NameEntity? cityWeatherEntity}) =>
       CityWeatherSuccess(
         cityWeatherEntity: cityWeatherEntity ?? this.cityWeatherEntity,
       );

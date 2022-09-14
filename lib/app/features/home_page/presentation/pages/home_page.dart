@@ -42,20 +42,20 @@ class _HomePageState extends State<HomePage> {
           } else if (state is CityWeatherSuccess) {
             return const DropdownWidget();
 
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const Text(
-                    'You have pushed the button this many times:',
-                  ),
-                  Text(
-                    state.cityWeatherEntity.name,
-                    style: Theme.of(context).textTheme.headline4,
-                  ),
-                ],
-              ),
-            );
+            // return Center(
+            //   child: Column(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: <Widget>[
+            //       const Text(
+            //         'You have pushed the button this many times:',
+            //       ),
+            //       Text(
+            //         state.cityWeatherEntity.mainEntity.feelsLike.toString(),
+            //         style: Theme.of(context).textTheme.headline4,
+            //       ),
+            //     ],
+            //   ),
+            // );
           } else {
             return const SizedBox();
           }

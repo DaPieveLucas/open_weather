@@ -1,10 +1,10 @@
 import 'dart:developer';
 
-import 'package:open_weather/app/features/home_page/domain/entities/city_weather_entity.dart';
 import 'package:open_weather/core/errors/failure.dart';
 import 'package:open_weather/utils/either.dart';
 
 import '../../core/errors/weather_failure.dart';
+import '../../domain/entities/name_entity.dart';
 import '../../domain/repositories/city_weather_repository.dart';
 import '../datasources/weather_datasource/weather_datasource.dart';
 
@@ -14,7 +14,7 @@ class CityWeatherRepositoryImpl implements CityWeatherRepository {
   final WeatherDatasource _weatherDatasource;
 
   @override
-  Future<Either<Failure, CityWeatherEntity>> call(String cityName) async {
+  Future<Either<Failure, NameEntity>> call(String cityName) async {
     try {
       final result = await _weatherDatasource.call(cityName);
 
