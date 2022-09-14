@@ -19,11 +19,14 @@ class CityWeatherRepositoryImpl implements CityWeatherRepository {
       final result = await _weatherDatasource.call(cityName);
 
       return Right(result);
-    } catch (e, s) {
+    } on WeatherFailure catch (e, s) {
       log('CityWeatherRepositoryImpl', error: e, stackTrace: s);
       throw Left(
-        WeatherFailure(message: 'Failure when getting weather datasource'),
+        WeatherFailure(message: e.message),
       );
+    } catch (e, s) {
+      log('Generic error', error: e, stackTrace: s);
+      throw WeatherFailure(message: 'Generic error');
     }
   }
 }

@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 
 import '../../core/constants/cities_list_constant.dart';
 
-class DropdownWidget extends StatefulWidget {
-  const DropdownWidget({super.key});
+class DropdownWidget extends StatelessWidget {
+  const DropdownWidget({
+    required this.dropdownValue,
+    required this.onChanged,
+    super.key,
+  });
+  final void Function(String?)? onChanged;
+  final String dropdownValue;
 
-  @override
-  State<DropdownWidget> createState() => _DropdownWidgetState();
-}
-
-class _DropdownWidgetState extends State<DropdownWidget> {
-  String dropdownValue = 'Lisbon';
-
-  List<String> cities = CitiesListConstant.citiesList;
+  final List<String> cities = CitiesListConstant.citiesList;
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +27,8 @@ class _DropdownWidgetState extends State<DropdownWidget> {
                 child: Text(items),
               );
             }).toList(),
-            onChanged: (String? newValue) {
-              setState(() {
-                dropdownValue = newValue ?? dropdownValue;
-              });
-            },
-          )
+            onChanged: onChanged,
+          ),
         ],
       ),
     );

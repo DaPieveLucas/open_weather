@@ -8,10 +8,12 @@ abstract class CityWeatherState extends Equatable {
 }
 
 class CityWeatherInitial extends CityWeatherState {
-  const CityWeatherInitial();
+  const CityWeatherInitial({this.stateDropdownValue = 'Lisbon'});
+
+  final String stateDropdownValue;
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [stateDropdownValue];
 }
 
 class CityWeatherLoading extends CityWeatherState {
@@ -22,22 +24,32 @@ class CityWeatherLoading extends CityWeatherState {
 }
 
 class CityWeatherErrorState extends CityWeatherState {
-  const CityWeatherErrorState();
+  const CityWeatherErrorState({required this.errorMessage});
+
+  final String errorMessage;
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [errorMessage];
 }
 
 class CityWeatherSuccess extends CityWeatherState {
-  const CityWeatherSuccess({required this.cityWeatherEntity});
+  const CityWeatherSuccess({
+    required this.cityWeatherEntity,
+    this.stateDropdownValue = 'Lisbon',
+  });
 
   final NameEntity cityWeatherEntity;
+  final String stateDropdownValue;
 
-  CityWeatherSuccess copyWith({NameEntity? cityWeatherEntity}) =>
+  CityWeatherSuccess copyWith({
+    NameEntity? cityWeatherEntity,
+    String? stateDropdownValue,
+  }) =>
       CityWeatherSuccess(
         cityWeatherEntity: cityWeatherEntity ?? this.cityWeatherEntity,
+        stateDropdownValue: stateDropdownValue ?? this.stateDropdownValue,
       );
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [cityWeatherEntity, stateDropdownValue];
 }

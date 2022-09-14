@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:open_weather/core/errors/failure.dart';
 
 import '../../domain/entities/name_entity.dart';
 import '../../domain/usecases/city_weather_usecase.dart';
@@ -13,14 +14,20 @@ class CityWeatherCubit extends Cubit<CityWeatherState> {
 
   final CityWeatherUsecase _cityWeatherUsecase;
 
-  Future<void> getWeatherData() async {
+  Future<void> getWeatherData({String? cityName}) async {
     emit(const CityWeatherLoading());
 
-    final resultData = await _cityWeatherUsecase('Vienna');
+    final resultData = await _cityWeatherUsecase(cityName ?? '');
 
     resultData.fold(
-      (failure) => emit(const CityWeatherErrorState()),
-      (success) => emit(CityWeatherSuccess(cityWeatherEntity: success)),
+      (failure) =>
+          emit(CityWeatherErrorState(errorMessage: failure.message ?? '')),
+      (success) => emit(
+        CityWeatherSuccess(
+          cityWeatherEntity: success,
+          stateDropdownValue: cityName ?? '',
+        ),
+      ),
     );
   }
 }
