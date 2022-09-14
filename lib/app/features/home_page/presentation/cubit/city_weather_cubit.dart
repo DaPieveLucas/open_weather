@@ -16,7 +16,7 @@ class CityWeatherCubit extends Cubit<CityWeatherState> {
   Future<void> getWeatherData() async {
     emit(const CityWeatherLoading());
 
-    final resultData = await _cityWeatherUsecase();
+    final resultData = await _cityWeatherUsecase('Vienna');
 
     resultData.fold(
       (failure) => emit(const CityWeatherErrorState()),

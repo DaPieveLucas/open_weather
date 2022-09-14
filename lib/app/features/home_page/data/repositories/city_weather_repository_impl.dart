@@ -14,9 +14,9 @@ class CityWeatherRepositoryImpl implements CityWeatherRepository {
   final WeatherDatasource _weatherDatasource;
 
   @override
-  Future<Either<Failure, CityWeatherEntity>> call() async {
+  Future<Either<Failure, CityWeatherEntity>> call(String cityName) async {
     try {
-      final result = await _weatherDatasource.call();
+      final result = await _weatherDatasource.call(cityName);
 
       return Right(result);
     } catch (e, s) {

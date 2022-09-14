@@ -11,7 +11,7 @@ class CityWeatherUsecaseImpl implements CityWeatherUsecase {
   final CityWeatherRepository _cityWeatherRepository;
 
   @override
-  Future<Either<Failure, CityWeatherEntity>> call() async {
-    return await _cityWeatherRepository();
+  Future<Either<Failure, CityWeatherEntity>> call(String cityName) async {
+    return await _cityWeatherRepository(cityName);
   }
 }

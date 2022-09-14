@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../cubit/city_weather_cubit.dart';
+import '../widgets/dropdown_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -25,7 +26,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('widget.title'),
+        title: const Text(
+          'Forecasts',
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
       ),
       body: BlocBuilder<CityWeatherCubit, CityWeatherState>(
         builder: (context, state) {
@@ -36,7 +40,9 @@ class _HomePageState extends State<HomePage> {
               child: Text('error'),
             );
           } else if (state is CityWeatherSuccess) {
-            return Center(
+            return const DropdownWidget();
+
+            Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
