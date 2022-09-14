@@ -19,7 +19,6 @@ class _HomePageState extends State<HomePage> {
     super.initState();
 
     _cubit = context.read<CityWeatherCubit>();
-    _cubit.getWeatherData();
   }
 
   @override
@@ -34,37 +33,45 @@ class _HomePageState extends State<HomePage> {
       body: BlocBuilder<CityWeatherCubit, CityWeatherState>(
         builder: (context, state) {
           if (state is CityWeatherLoading) {
-            return const CircularProgressIndicator.adaptive();
+            return const Center(child: CircularProgressIndicator.adaptive());
           } else if (state is CityWeatherErrorState) {
-            return const Center(
-              child: Text('error'),
+            //TODO arrumar o estado de erro
+            return Center(
+              child: Text(state.errorMessage),
             );
           } else if (state is CityWeatherSuccess) {
-            return const DropdownWidget();
-
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const Text(
-                    'You have pushed the button this many times:',
-                  ),
-                  Text(
-                    state.cityWeatherEntity.name,
-                    style: Theme.of(context).textTheme.headline4,
-                  ),
-                ],
-              ),
+            return Column(
+              children: [
+                DropdownWidget(
+                  dropdownValue: state.stateDropdownValue,
+                  onChanged: (String? value) {
+                    _cubit.getWeatherData(
+                      cityName: value ?? state.stateDropdownValue,
+                    );
+                  },
+                ),
+                Text(state.cityWeatherEntity.mainEntity.humidity.toString()),
+                Container(
+                  width: 100,
+                  height: 100,
+                  color: Colors.blue,
+                )
+              ],
+            );
+          } else if (state is CityWeatherInitial) {
+            return DropdownWidget(
+              dropdownValue: state.stateDropdownValue,
+              onChanged: (String? value) {
+                _cubit.getWeatherData(
+                  cityName: value ?? state.stateDropdownValue,
+                );
+              },
             );
           } else {
+            //TODO retornar estado de erro
             return const SizedBox();
           }
         },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }

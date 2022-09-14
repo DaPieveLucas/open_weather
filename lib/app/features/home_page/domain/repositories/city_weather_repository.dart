@@ -1,7 +1,8 @@
 import '../../../../../core/errors/failure.dart';
 import '../../../../../utils/either.dart';
-import '../entities/city_weather_entity.dart';
+
+import '../entities/name_entity.dart';
 
 abstract class CityWeatherRepository {
-  Future<Either<Failure, CityWeatherEntity>> call(String cityName);
+  Future<Either<Failure, NameEntity>> call(String cityName);
 }
