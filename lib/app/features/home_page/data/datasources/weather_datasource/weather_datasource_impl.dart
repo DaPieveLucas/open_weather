@@ -17,7 +17,7 @@ class WeatherDatasourceImpl implements WeatherDatasource {
   Future<NameEntity> call(String cityName) async {
     try {
       final response = await _restClient.get(
-        '${kbaseUrl}weather?q=$cityName&APPID=2cc04d48ec5cd5960b6e48246a7646ff',
+        '${kbaseUrl}weather?q=$cityName&units=metric&APPID=2cc04d48ec5cd5960b6e48246a7646ff',
       );
       log('${response.data}');
       return NameEntityModel.fromMap(

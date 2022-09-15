@@ -16,20 +16,38 @@ class DropdownWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        children: [
-          DropdownButton(
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(width: 2, color: Colors.cyan),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: DropdownButton(
+            underline: const SizedBox(),
+            elevation: 10,
+            style: const TextStyle(fontSize: 20, color: Colors.black),
             value: dropdownValue,
-            icon: const Icon(Icons.keyboard_arrow_down),
+            icon: const Icon(Icons.arrow_drop_down_circle),
+            iconEnabledColor: Colors.cyanAccent,
+            isExpanded: true,
             items: cities.map((String items) {
               return DropdownMenuItem(
                 value: items,
-                child: Text(items),
+                child: Center(
+                  child: Text(
+                    items,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
               );
             }).toList(),
             onChanged: onChanged,
           ),
-        ],
+        ),
       ),
     );
   }
