@@ -123,7 +123,7 @@
     },
     {
       "name": "material_color_utilities",
-      "rootUri": "file:///Users/premiersoft/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.2.0",
+      "rootUri": "file:///Users/premiersoft/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.5",
       "packageUri": "lib/",
       "languageVersion": "2.13"
     },
@@ -177,7 +177,7 @@
     },
     {
       "name": "source_span",
-      "rootUri": "file:///Users/premiersoft/.pub-cache/hosted/pub.dartlang.org/source_span-1.9.1",
+      "rootUri": "file:///Users/premiersoft/.pub-cache/hosted/pub.dartlang.org/source_span-1.9.0",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
@@ -239,10 +239,10 @@
       "name": "open_weather",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "2.18"
     }
   ],
-  "generated": "2022-09-15T14:40:50.528823Z",
+  "generated": "2023-01-24T17:38:56.822477Z",
   "generator": "pub",
-  "generatorVersion": "2.19.0-97.0.dev"
+  "generatorVersion": "2.18.6"
 }
